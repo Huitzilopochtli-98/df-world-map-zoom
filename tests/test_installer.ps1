@@ -15,8 +15,8 @@ $originalHash=(Get-FileHash -LiteralPath $original).Hash
 $params=@{GamePath=$game;HackPath=$hack;ConfigPath=$config}
 $sourceOnly=Join-Path $TestRoot 'source-only'
 New-Item -ItemType Directory -Path $sourceOnly -Force | Out-Null
-foreach ($relative in @('Install.ps1','compatibility.json','payload.json') +
-        @(Get-Content -LiteralPath (Join-Path $package 'payload.json') -Raw | ConvertFrom-Json)) {
+$payload=Get-Content -LiteralPath (Join-Path $package 'payload.json') -Raw | ConvertFrom-Json
+foreach ($relative in @('Install.ps1','compatibility.json','payload.json') + $payload) {
     if ($relative -eq 'hack/plugins/worldmap-zoom-render.plug.dll') {continue}
     $destination=Join-Path $sourceOnly $relative
     New-Item -ItemType Directory -Path (Split-Path $destination) -Force | Out-Null

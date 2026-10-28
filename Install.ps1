@@ -55,7 +55,8 @@ function WriteRecord($entries,[bool]$complete) {
             ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $recordPath -Encoding UTF8
     }
 }
-$files=@(Get-Content -LiteralPath (Join-Path $package 'payload.json') -Raw | ConvertFrom-Json)
+$files=Get-Content -LiteralPath (Join-Path $package 'payload.json') -Raw | ConvertFrom-Json
+$files=@($files)
 
 $allowed=@(
     'dfhack-config/scripts/gui/worldmap-zoom.lua'

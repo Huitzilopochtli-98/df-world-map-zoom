@@ -1,4 +1,11 @@
-# Validation — 0.3.0
+# Validation - 1.0.0 and the tested 0.3.0 implementation
+
+Version 1.0.0 promotes the tested 0.3.0 native DLL and runtime scripts unchanged.
+Its changes are documentation, package version metadata, and a correction to
+installer JSON array handling for Windows PowerShell 5.1. The native results
+below were collected for 0.3.0 and remain the validation basis for 1.0.0; they
+are not presented as a new in-game test run. The exact DLL hash is recorded in
+`release/1.0.0.json`. Supported game and DFHack builds are unchanged.
 
 Validated October 27, 2026 against the installed Windows Steam DF 53.16 / DFHack 53.16-r3 binaries and the normal desktop `direct3d` backend. Exact commits and executable hashes are in `compatibility.json`. Tests use explicitly selected **Portable Folder: region2** and **Portable Folder: region4** copies; original saves are not write targets. The native test worlds are 129×129 tiles.
 

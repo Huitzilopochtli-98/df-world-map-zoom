@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.0 - stable release
+
+- Promoted the tested 0.3.0 implementation to version 1.0.0.
+- Rewrote the README for first-time users, with direct download links and
+  step-by-step installation, startup, controls, updating, and removal.
+- Added troubleshooting for common installation and startup problems.
+- Fixed installer payload validation on Windows PowerShell 5.1 so the
+  documented commands work with Windows' built-in PowerShell.
+- Updated the package version, release profile, and publishing instructions.
+
+The native DLL, runtime scripts, and supported DF/DFHack builds are unchanged
+from 0.3.0. Existing native validation remains applicable; this release does
+not introduce new rendering or gameplay behavior. Installer JSON array handling
+is corrected for Windows PowerShell 5.1 as well as PowerShell 7.
+
 ## 0.3.0 — first public package
 
 - Native world-map magnification at 1x, 2x, and 4x for high-level embark and

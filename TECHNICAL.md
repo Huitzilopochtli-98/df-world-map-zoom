@@ -37,8 +37,8 @@ The builder refuses mismatched DFHack and structure commits or DFHack DLL hashes
 It reads import names from your installed `dfhack.dll` and `lua53.dll`; those
 files are inputs you supply and are not redistributed here. Match the game too
 before installation. An updated game or DFHack needs new ABI validation, not
-just a version-string change. The released DLL is the original in-game-tested
-0.3.0 binary, recorded in `release/0.3.0.json`. A rebuilt DLL can have different
+just a version-string change. Version 1.0.0 uses the original in-game-tested
+0.3.0 binary, recorded in `release/1.0.0.json`. A rebuilt DLL can have different
 PE timestamps and paths; byte-for-byte reproducibility is not claimed. Locally
 rechecking the public source build did not replace native gameplay acceptance
 of the original released DLL.
@@ -56,6 +56,13 @@ For the installer suite, supply `-GameExe "PATH/TO/Dwarf Fortress.exe"`,
 extracted Windows release ZIP. This test copies only the required executable
 inputs into its test directory. It checks missing-payload rejection and
 uninstall from source without a local DLL as well as backups and recovery.
+
+
+The installer normally discovers Steam libraries and follows `dfhooks_dfhack.ini`
+to a separate DFHack installation. For custom locations, run `Install.ps1` with
+`-GamePath "PATH/TO/GAME" -HackPath "PATH/TO/DFHACK/hack" -ConfigPath "PATH/TO/dfhack-config"`.
+`GamePath` contains `Dwarf Fortress.exe`; `HackPath` contains `dfhack.dll`.
+If omitted, `ConfigPath` defaults to `dfhack-config` under the game directory.
 
 Relevant matched sources:
 

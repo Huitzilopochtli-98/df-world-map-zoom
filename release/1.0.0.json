@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "nativeDllSha256": "c95964dcff4e1fa423bb2eec39919447f6db14a8a1566513ca012242444ff46a",
+  "nativeValidation": "evidence/v0.3.0",
+  "note": "Stable promotion of the tested 0.3.0 implementation. The original in-game-tested DLL and runtime scripts are unchanged. Documentation and package version metadata are updated, and installer JSON array handling is corrected for Windows PowerShell 5.1. PE timestamps and compiler paths mean rebuilding is not promised to produce identical bytes."
+}

@@ -1,0 +1,31 @@
+Installed World Map Zoom. Open a supported map and run: gui/worldmap-zoom
+DFHack: <validation-workspace>\work\installer-v1-powershell51-fixed\hack
+Configuration: <validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config
+Installed World Map Zoom. Open a supported map and run: gui/worldmap-zoom
+DFHack: <validation-workspace>\work\installer-v1-powershell51-fixed\hack
+Configuration: <validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config
+Preserved modified file: <validation-workspace>\work\installer-v1-powershell51-fixed\hack\lua\worldmap-zoom\input.lua
+World Map Zoom removed. Backups were retained.
+World Map Zoom removed. Backups were retained.
+What if: Performing the operation "Back up original file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\scripts\gui\worldmap-zoom.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\scripts\gui\worldmap-zoom.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\scripts\worldmap-zoom.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\hack\lua\plugins\worldmap-zoom-render.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\hack\lua\worldmap-zoom\camera.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\hack\lua\worldmap-zoom\context.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\hack\lua\worldmap-zoom\gesture.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\hack\lua\worldmap-zoom\input.lua".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+What if: Performing the operation "Install World Map Zoom file" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\hack\plugins\worldmap-zoom-render.plug.dll".
+What if: Performing the operation "Write installation record" on target "<validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config\worldmap-zoom-install.json".
+Preview complete; no files were changed.
+DFHack: <validation-workspace>\work\installer-v1-powershell51-fixed\hack
+Configuration: <validation-workspace>\work\installer-v1-powershell51-fixed\game\dfhack-config
+PASS installer backup, idempotence, rollback, modified-file preservation, checksum rejection, dry run, missing-payload rejection, and source-only uninstall

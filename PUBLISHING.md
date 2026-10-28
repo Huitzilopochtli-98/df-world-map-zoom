@@ -1,68 +1,64 @@
-# Publishing the prepared release
+# Publishing a release
 
-The local repository is prepared for `Huitzilopochtli-98/df-world-map-zoom`.
-No remote repository, push, or public release is created by local preparation.
-The prepared checkout has a `main` commit and an annotated `v0.3.0` tag.
+The public repository is
+[Huitzilopochtli-98/df-world-map-zoom](https://github.com/Huitzilopochtli-98/df-world-map-zoom).
+Source is tracked in Git; compiled downloads are GitHub release assets.
 
-Publish this directory only. The parent workspace contains private diagnostics,
-game copies, saves, and build tools and must not be uploaded. This repository
-includes original source, documentation, screenshots, and sanitized evidence.
-Compiled artifacts stay out of Git history and are distributed as release assets.
+Publish this repository only. Its parent workspace contains private test data
+and development tools. Do not upload game files, saves, or compiler binaries.
 
-## First publication
+## Prepare the source and package
 
-After authorizing publication, use an authenticated GitHub CLI in this repository
-or perform the equivalent steps through GitHub's interface. The prepared name
-and account below can be changed before creating the remote.
+1. Update the README, changelog, `compatibility.json`, release notes, and
+   `release/<version>.json`. For a new native build, collect game validation
+   and record that DLL's hash. Keep historical evidence labeled accurately.
+2. Run the relevant checks, commit the source, and create an annotated tag.
+3. From a clean checkout, create the release assets:
 
-```powershell
-gh auth status
-gh repo create Huitzilopochtli-98/df-world-map-zoom --public --source=. --remote=origin --push --description "Native world map zoom for Dwarf Fortress and DFHack: 1x, 2x, 4x"
-git push origin v0.3.0
-```
+   ```powershell
+   python tools/package_release.py --native-dll "PATH/TO/VALIDATED/worldmap-zoom-render.plug.dll" --output dist
+   ```
 
-Wait for the standalone workflow on `main` to pass. It has not run on GitHub
-during local preparation. Check the two prepared release ZIPs against their
-adjacent `SHA256SUMS.txt`. Put all three in `dist/` if using these commands:
+For **1.0.0**, use the exact tested DLL recorded in `release/1.0.0.json`.
+It is the same binary distributed with 0.3.0. The packager checks that hash,
+packages `git archive HEAD`, and writes `PROVENANCE.json` and checksums.
+It refuses a different DLL or existing output files. It does not build, install,
+push, or publish anything.
 
-```powershell
-gh release create v0.3.0 dist/WorldMapZoom-0.3.0-windows-x64.zip dist/df-world-map-zoom-0.3.0-source.zip dist/SHA256SUMS.txt --verify-tag --draft --title "World Map Zoom 0.3.0" --notes-file release/NOTES-0.3.0.md
-```
+The Windows ZIP contains the native DLL plus the public source. The source ZIP
+and GitHub's automatic source downloads omit the compiled plugin. Use the
+Windows ZIP when linking beginners to an installable download.
 
-Review the draft's tag, filenames, checksums, compatibility wording, and preview
-images. Publish the draft from GitHub's release page when ready. There is no
-workflow that automatically publishes a release. GitHub's own **Source code**
-downloads omit the compiled DLL, so the Windows asset must remain prominently
-identified in release notes. Add topics such as `dwarf-fortress`, `dfhack`, `lua`,
-and `mod` in the repository settings if useful.
+## Upload and publish 1.0.0
 
-## Regenerating assets or making a later release
-
-From a clean committed source checkout, supply the validated DLL explicitly:
+Verify that `gh api user --jq .login` returns the intended publishing account.
+Push the committed source and tag:
 
 ```powershell
-python tools/package_release.py --native-dll "PATH/TO/VALIDATED/worldmap-zoom-render.plug.dll" --output dist
+git push origin main
+git push origin v1.0.0
 ```
 
-For 0.3.0 this must be the exact DLL already recorded in `release/0.3.0.json`.
-The supplied release ZIP contains it. The script rejects a different DLL and
-refuses to overwrite existing assets. It packages `git archive HEAD`, binds the
-native hash to that public source commit in `PROVENANCE.json`, writes internal
-and external checksums, and includes no `.git` metadata or ignored build files.
+Wait for GitHub's standalone checks to pass. Those checks exercise Lua and
+Python tooling; they do not run Dwarf Fortress or certify native rendering.
 
-For a new native build, perform game validation, update `compatibility.json`,
-the release profile, evidence, changelog, and release notes, then commit and tag
-that source before packaging. The packager checks the recorded hash; it cannot
-establish that a new binary behaves correctly. Do not mark a rebuild as the
-previously tested DLL. Python ZIP creation is deterministic for the same input
-and compression implementation; cross-toolchain native reproducibility is not
-claimed.
+Create a draft release with the generated files:
 
-The local commit uses the connected GitHub account's `users.noreply.github.com`
-identity instead of a personal email. No authentication credential is stored
-in the repository. Source ZIPs have no Git history; keep the prepared local Git
-checkout when publishing the existing tag.
+```powershell
+gh release create v1.0.0 dist/WorldMapZoom-1.0.0-windows-x64.zip dist/df-world-map-zoom-1.0.0-source.zip dist/SHA256SUMS.txt --repo Huitzilopochtli-98/df-world-map-zoom --verify-tag --draft --title "World Map Zoom 1.0" --notes-file release/NOTES-1.0.0.md
+```
 
-Reference: [GitHub CLI repository creation](https://cli.github.com/manual/gh_repo_create),
-[release creation](https://cli.github.com/manual/gh_release_create), and
-[GitHub releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases).
+Check the tag's source commit, compatibility wording, asset sizes, and SHA-256
+hashes before publishing the draft:
+
+```powershell
+gh release edit v1.0.0 --repo Huitzilopochtli-98/df-world-map-zoom --draft=false --latest --verify-tag
+```
+
+There is no automatic release publishing workflow. Later releases need their
+own version, tag, profile, notes, and validation as appropriate. The packager
+checks the recorded DLL hash; it cannot establish correct behavior on its own.
+Native builds are not promised to produce identical bytes across toolchains.
+
+Commits use the publishing account's `users.noreply.github.com` identity.
+Credentials and Git metadata are not included in release ZIPs.

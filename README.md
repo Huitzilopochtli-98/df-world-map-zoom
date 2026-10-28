@@ -1,71 +1,116 @@
-# World Map Zoom 0.3.0
+# World Map Zoom 1.0
 
-Magnifies the native high-level world map in embark selection and the normal fortress world screen. Supports 1x, 2x, and 4x, pointer-anchored zoom, drag panning, mapped hover, and optional native location selection. Text and surrounding controls retain their native scale. Opening the tool starts at 2x.
+Make Dwarf Fortress's world map easier to see with **2x and 4x zoom**.
+Move around by dragging the map. Hover over places to see their usual information.
+Text and buttons stay their normal size.
 
-Version 0.3.0 adds 4x using the same Direct3D-compatible texture composition introduced in 0.2.1. Close DF before upgrading, then restart it to load the replacement native module.
+## What you need
 
-This build targets **Windows x64, Steam DF 53.16, DFHack 53.16-r3**. The installer checks the exact tested game and DFHack executables. An update requires rebuilding and testing the plugin.
+- **Windows 64-bit**
+- **Dwarf Fortress 53.16**, Steam version
+- **DFHack 53.16-r3**, already installed and working
 
-Download **WorldMapZoom-0.3.0-windows-x64.zip** from the
-[Releases page](https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases/latest)
-and extract the entire ZIP. GitHub's **Code → Download ZIP** and automatic
-**Source code** archives contain source only; they require building the plugin.
-Verify the ZIP against the release's `SHA256SUMS.txt` with `Get-FileHash` if desired.
+This download works with those specific versions. The installer checks them
+before making changes. Newer game or DFHack versions need a compatible mod build.
 
-Close Dwarf Fortress, open PowerShell in the extracted folder, and run:
+## Install
 
-```powershell
-.\Install.ps1
-```
+1. **Close Dwarf Fortress completely.**
+2. [Download the Windows ZIP](https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases/download/v1.0.0/WorldMapZoom-1.0.0-windows-x64.zip).
+   Its name is **WorldMapZoom-1.0.0-windows-x64.zip**. Choose this file,
+   rather than one of the "Source code" downloads.
+3. Right-click the ZIP, choose **Extract All**, then **Extract**.
+   Open the extracted **WorldMapZoom** folder. You should see **Install.ps1**.
+4. Click File Explorer's address bar, type **powershell**, and press **Enter**.
+   A PowerShell window opens in that folder.
+5. Copy this whole line into PowerShell and press **Enter**:
 
-The installer locates Steam's game directory and follows `dfhooks_dfhack.ini` to the separate DFHack directory. For a custom configuration directory, pass `-GamePath`, `-HackPath` (the directory containing `dfhack.dll`), and `-ConfigPath`. The running instance reports these through `dfhack.getDFPath()`, `dfhack.getHackPath()`, and `dfhack.getConfigPath()`.
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1
+   ```
 
-Open the high-level embark map or the fortress's normal world map. In DFHack's command launcher or console, run:
+When you see **Installed World Map Zoom**, installation is finished.
+The installer normally finds your Steam game and DFHack folders automatically.
+Keep the extracted folder if you want to use its uninstaller later.
 
-```text
-gui/worldmap-zoom
-```
+## Open the mod in game
 
-The shorter `worldmap-zoom` command also works.
+1. Start Dwarf Fortress with DFHack running.
+2. Open your fortress's **world map**, or the **world map used to choose an embark location**.
+3. Press **Ctrl + Shift + D** to open DFHack's command launcher.
+4. Type this command and press **Enter**:
 
-| Control | Action |
+   ```text
+   gui/worldmap-zoom
+   ```
+
+The map starts at **2x zoom**. Run the same command whenever you want to open the mod again.
+
+## Controls
+
+| To do this | Use this |
 | --- | --- |
-| Wheel over the map | Step 1x â†” 2x â†” 4x around the pointer; stop at either end |
-| Z over the map | Cycle 1x â†’ 2x â†’ 4x â†’ 1x around the pointer |
-| + / âˆ’ buttons | Step zoom around the center |
-| Z away from the map | Cycle zoom around the center |
-| Arrow keys or WASD | Pan |
-| Left or middle mouse drag | Grab and move the map |
-| R | Restore the camera from when the tool opened, at 1x |
-| I | Toggle native selection; initially off |
-| Esc or right-click | Exit zoom |
+| Zoom in or out | Scroll the mouse wheel over the map, or click **+ / -** |
+| Cycle through 1x, 2x, and 4x | Press **Z** |
+| Move around | Hold the **left or middle mouse button** and drag the map |
+| Move with the keyboard | Press the **arrow keys** or **W, A, S, D** |
+| See information about a place | Hover the mouse over it |
+| Allow normal map selection | Press **I**; press it again to turn selection off |
+| Return to your starting view at 1x | Press **R** |
+| Close the mod | Press **Esc** or **right-click** |
 
-Inspection blocks map selection and still provides mapped native hover. With native selection on, a short left click selects on release at the inverse-mapped press position. Moving at least six pixels makes it a drag, even if you return to the starting point; a drag never selects. Middle clicks never select. Release outside the map, window focus loss, resize, and exiting the tool cancel a pending selection. Native buttons keep their normal behavior; dragging must start on the map.
+When you scroll, the map zooms toward the place under your mouse.
+Map selection starts **off** so you can drag without selecting a location.
+With selection on, a short left-click selects a location; dragging still moves the map.
 
-Entering the detailed embark map or a native site-action panel closes zoom and restores native rendering. Embarking and issuing orders remain native actions.
+The mod works on the main embark world map and the normal fortress world map.
+Opening the detailed embark view or a site action panel closes the zoom tool.
 
-Pointer anchoring holds the world point under the mouse until world bounds require a clamp. When the world is smaller than the viewport it stays centered. At 1x DF uses an integral tile camera, so zooming out or panning can snap by up to half a tile (eight map pixels). Magnified crops are accurate to a source pixel. Scales beyond 1x/2x/4x, preference persistence, and other platforms are future work. Detailed geographic maps and the fortress world screen's other modes are not magnified.
+## Update or uninstall
 
-To disable from DFHack, run `worldmap-zoom disable`. To uninstall, close DF and run:
+**To update:** close Dwarf Fortress, extract the new Windows ZIP, and follow
+the installation steps again. You do not need to uninstall the old version first.
+
+**To uninstall:** close Dwarf Fortress. Open PowerShell in the extracted
+**WorldMapZoom** folder as described above, then run:
 
 ```powershell
-.\Install.ps1 -Uninstall
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1 -Uninstall
 ```
 
-Existing conflicting files are backed up. Uninstall restores originals and preserves files modified after installation; its recovery record identifies anything preserved. Backups remain in the configuration directory. Game saves and world data are not installer targets.
+The installer backs up conflicting files. Uninstall restores those backups and
+keeps files you changed after installation. Your game saves are left alone.
 
-The native module retains its code until DF exits so queued graphics callbacks cannot execute freed code. Logical unload detaches the hooks. Close DF before replacing the DLL.
+## If something goes wrong
 
-Source, tests, compatibility data, captures, and measured results are in the repository. See [technical notes](TECHNICAL.md), [validation](VALIDATION.md), and [compatibility](compatibility.json).
+- **PowerShell cannot find Install.ps1:** open the extracted folder that contains
+  that file, then open PowerShell from its address bar. Do not run from inside the ZIP.
+- **The installer says the executables differ:** your game or DFHack does not match
+  the supported build. Check the versions listed above.
+- **The installer says the package is incomplete:** download and extract the
+  **Windows ZIP**, not a source-only archive.
+- **DFHack does not recognize the command:** check that installation finished
+  successfully, restart the game, and make sure DFHack is running.
 
+Still stuck? [Open an issue](https://github.com/Huitzilopochtli-98/df-world-map-zoom/issues).
+Include your game, DFHack, and mod versions, plus the error message or a screenshot.
 
-![Fortress world map at 4x](fortress-inspection.png)
+## Preview
 
-![Embark world map at 4x](embark-inspection.png)
+![Fortress world map at 4x zoom](fortress-inspection.png)
 
-Open source under the permissive [Zlib license](LICENSE). You may modify and
-redistribute the mod, including in commercial projects, subject to its notice
-requirements. [Contributions and forks](CONTRIBUTING.md) are welcome. Game graphics
-remain covered by their owners' rights; see [third-party notices](THIRD_PARTY_NOTICES.md).
-This is an independent mod. For build and release steps, see
-[technical notes](TECHNICAL.md) and [publishing guide](PUBLISHING.md).
+[See the embark map at 4x zoom](embark-inspection.png).
+
+## Source and license
+
+Version **1.0.0** promotes the tested 0.3.0 implementation to a stable release
+with clearer instructions. Zoom behavior and compatibility are unchanged.
+
+The mod is open source under the [Zlib license](LICENSE).
+Forks, improvements, and extensions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md)
+to get started. Game graphics belong to their respective owners;
+see [third-party notices](THIRD_PARTY_NOTICES.md).
+
+For development details: [technical notes](TECHNICAL.md),
+[test results](VALIDATION.md), [changelog](CHANGELOG.md),
+and [publishing guide](PUBLISHING.md).
