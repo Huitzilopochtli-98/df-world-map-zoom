@@ -113,4 +113,5 @@ see [third-party notices](THIRD_PARTY_NOTICES.md).
 
 For development details: [technical notes](TECHNICAL.md),
 [test results](VALIDATION.md), [changelog](CHANGELOG.md),
-and [publishing guide](PUBLISHING.md).
+and [publishing guide](PUBLISHING.md). The separate
+[Workshop companion guide](workshop/PUBLISHING.md) explains its setup-help package.
