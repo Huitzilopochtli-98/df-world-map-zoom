@@ -95,6 +95,12 @@ keeps files you changed after installation. Your game saves are left alone.
 Still stuck? [Open an issue](https://github.com/Huitzilopochtli-98/df-world-map-zoom/issues).
 Include your game, DFHack, and mod versions, plus the error message or a screenshot.
 
+## Steam Workshop
+
+The [Workshop setup companion](https://steamcommunity.com/sharedfiles/filedetails/?id=3828801093)
+provides installation help in DFHack. **Subscribing does not install the zoom
+feature.** Follow the Windows installation steps above to enable zoom.
+
 ## Preview
 
 ![Fortress world map at 4x zoom](fortress-inspection.png)
