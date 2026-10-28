@@ -1,0 +1,122 @@
+[
+  {
+    "backend": "direct3d",
+    "negative_viewport": false,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "direct3d",
+    "negative_viewport": true,
+    "read_result": 0,
+    "visible_fraction": 0.0,
+    "error": ""
+  },
+  {
+    "backend": "direct3d",
+    "target_composition": true,
+    "zoom": 4,
+    "visible_fraction": 1.0
+  },
+  {
+    "backend": "direct3d11",
+    "negative_viewport": false,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "direct3d11",
+    "negative_viewport": true,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "direct3d11",
+    "target_composition": true,
+    "zoom": 4,
+    "visible_fraction": 1.0
+  },
+  {
+    "backend": "direct3d12",
+    "negative_viewport": false,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "direct3d12",
+    "negative_viewport": true,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "direct3d12",
+    "target_composition": true,
+    "zoom": 4,
+    "visible_fraction": 1.0
+  },
+  {
+    "backend": "opengl",
+    "negative_viewport": false,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "opengl",
+    "negative_viewport": true,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "opengl",
+    "target_composition": true,
+    "zoom": 4,
+    "visible_fraction": 1.0
+  },
+  {
+    "backend": "opengles2",
+    "negative_viewport": false,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "opengles2",
+    "negative_viewport": true,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "opengles2",
+    "target_composition": true,
+    "zoom": 4,
+    "visible_fraction": 1.0
+  },
+  {
+    "backend": "software",
+    "negative_viewport": false,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "software",
+    "negative_viewport": true,
+    "read_result": 0,
+    "visible_fraction": 1.0,
+    "error": ""
+  },
+  {
+    "backend": "software",
+    "target_composition": true,
+    "zoom": 4,
+    "visible_fraction": 1.0
+  }
+]

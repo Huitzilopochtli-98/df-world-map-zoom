@@ -1,0 +1,13 @@
+Installed World Map Zoom. Open a supported map and run: gui/worldmap-zoom
+DFHack: <validation-workspace>\work\install-validation-v030\hack
+Configuration: <validation-workspace>\work\install-validation-v030\game\dfhack-config
+Installed World Map Zoom. Open a supported map and run: gui/worldmap-zoom
+DFHack: <validation-workspace>\work\install-validation-v030\hack
+Configuration: <validation-workspace>\work\install-validation-v030\game\dfhack-config
+Preserved modified file: <validation-workspace>\work\install-validation-v030\hack\lua\worldmap-zoom\input.lua
+World Map Zoom removed. Backups were retained.
+World Map Zoom removed. Backups were retained.
+Preview complete; no files were changed.
+DFHack: <validation-workspace>\work\install-validation-v030\hack
+Configuration: <validation-workspace>\work\install-validation-v030\game\dfhack-config
+PASS installer backup, idempotence, rollback, modified-file preservation, checksum rejection, and dry run

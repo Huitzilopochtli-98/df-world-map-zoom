@@ -1,0 +1,23 @@
+<type: viewscreen_titlest>
+{
+	"backend": {
+		"capture_error": "",
+		"context": 0,
+		"desktop_height": 1440,
+		"desktop_width": 2560,
+		"error": "",
+		"full_calls": 72385,
+		"last_capture": "<validation-workspace>/work/df-test/final-lifecycle-1793142171725228700.ppm",
+		"output_height": 1440,
+		"output_width": 2560,
+		"profile_samples": 256,
+		"ready": true,
+		"render_thread": 24484,
+		"restore_checks": 276981,
+		"restore_errors": 0,
+		"tile_calls": 1042344000,
+		"transformed_calls": 276981
+	},
+	"map": false,
+	"world": false
+}

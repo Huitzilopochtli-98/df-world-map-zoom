@@ -1,0 +1,25 @@
+World Map Zoom diagnostics v1
+label=title
+getDFVersion=v0.53.16 win64 STEAM
+getDFHackVersion=53.16-r3
+getDFHackRelease=r3
+getDFHackBuildID=
+getCompiledDFVersion=53.16
+getOSType=windows
+getGitCommit=0bf381cc1615656acf756e6e67573fffca715125
+getGitXmlCommit=d8ff8a6326db37c11dc4173fadcf30b56e51b42d
+getGitXmlExpectedCommit=d8ff8a6326db37c11dc4173fadcf30b56e51b42d
+gitXmlMatch=true
+getDFPath=<validation-workspace>/work/df-test
+getHackPath=<validation-workspace>/work/df-test/hack
+getConfigPath=<validation-workspace>/work/df-test/dfhack-config
+isWorldLoaded=false
+isMapLoaded=false
+graphics_mode=true
+screen_context=other_or_unavailable
+gps.screen_pixel_x=1200
+gps.screen_pixel_y=800
+gps.tile_pixel_x=8
+gps.tile_pixel_y=12
+gps.dimx=150
+gps.dimy=66

@@ -1,0 +1,10 @@
+[
+  "dfhack-config/scripts/gui/worldmap-zoom.lua",
+  "dfhack-config/scripts/worldmap-zoom.lua",
+  "hack/lua/plugins/worldmap-zoom-render.lua",
+  "hack/lua/worldmap-zoom/camera.lua",
+  "hack/lua/worldmap-zoom/context.lua",
+  "hack/lua/worldmap-zoom/gesture.lua",
+  "hack/lua/worldmap-zoom/input.lua",
+  "hack/plugins/worldmap-zoom-render.plug.dll"
+]

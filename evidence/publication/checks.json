@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-27",
+  "originalNativeDllSha256": "c95964dcff4e1fa423bb2eec39919447f6db14a8a1566513ca012242444ff46a",
+  "releaseReusesOriginalTestedNativeDll": true,
+  "runtimeSourceUnchangedExceptLfNormalization": [
+    "plugins/CMakeLists.txt",
+    "plugins/worldmap-zoom-canvas.h",
+    "plugins/worldmap-zoom-render.cpp",
+    "hack/lua/plugins/worldmap-zoom-render.lua",
+    "hack/lua/worldmap-zoom/camera.lua",
+    "hack/lua/worldmap-zoom/context.lua",
+    "hack/lua/worldmap-zoom/gesture.lua",
+    "hack/lua/worldmap-zoom/input.lua",
+    "dfhack-config/scripts/worldmap-zoom.lua",
+    "dfhack-config/scripts/gui/worldmap-zoom.lua"
+  ],
+  "screenshotBytesUnchanged": true,
+  "upstreamLicenseBytesUnchanged": true,
+  "standaloneLua": "Lua 5.3.6 CLI compiled from matched DFHack bundled Lua; tests/run.lua passed",
+  "nativeBuilder": "Portable-root and developer-environment paths passed with MSVC 14.44.35207 / SDK 10.0.26100.0; same portable compiler used for both",
+  "newBuildsRunInGame": false,
+  "installer": "Copied real matched core executables into a fresh disposable directory; no game launch or original installation writes",
+  "githubCiRun": false,
+  "published": false
+}

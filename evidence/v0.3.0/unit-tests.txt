@@ -1,0 +1,11 @@
+PASS 6930 coordinate checks; invalid camera values rejected
+PASS 319 inverse input and restoration checks
+PASS 307 pointer-anchor and drag/click lifecycle checks
+PASS title without loaded map
+PASS embark context and false values
+PASS fortress context and zero enum
+PASS optional APIs unavailable
+PASS reject unsafe labels and duplicate labels
+PASS save new report, preserve existing report
+PASS missing config prints report then fails without writing
+7 mock checks passed. These mocks do not establish native compatibility.

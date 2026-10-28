@@ -1,0 +1,11 @@
+{
+  "modVersion": "0.3.0",
+  "dfVersion": "v0.53.16 win64 STEAM",
+  "dfhackVersion": "53.16-r3",
+  "dfhackCommit": "0bf381cc1615656acf756e6e67573fffca715125",
+  "structuresCommit": "d8ff8a6326db37c11dc4173fadcf30b56e51b42d",
+  "gameSha256": "205770918FD54C96CBBCF89223EBD449E2E113C7C873ED81177C4511A3450DB7",
+  "dfhackSha256": "20ABCBC841155DAEFBD7ADDCB7E7BCD72D92D23EEBD347B297D44919CF2D0A7B",
+  "platform": "Windows x64, Steam, SDL2 renderer",
+  "compiler": "MSVC 14.44.35207, Release /MD /vmg /vmm, C++20"
+}

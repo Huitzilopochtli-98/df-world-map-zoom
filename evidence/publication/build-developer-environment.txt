@@ -1,0 +1,7 @@
+   Creating library <validation-workspace>\work\public-build-developer-environment\dfhack.lib and object <validation-workspace>\work\public-build-developer-environment\dfhack.exp
+   Creating library <validation-workspace>\work\public-build-developer-environment\lua53.lib and object <validation-workspace>\work\public-build-developer-environment\lua53.exp
+worldmap-zoom-render.cpp
+DFHackVersion.cpp
+Generating Code...
+   Creating library worldmap-zoom-render.lib and object worldmap-zoom-render.exp
+<validation-workspace>\outputs\df-world-map-zoom\hack\plugins\worldmap-zoom-render.plug.dll

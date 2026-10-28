@@ -1,0 +1,11 @@
+test_hashes_bind_source_and_native (test_packaging.ReleasePackaging) ... ok
+test_rejects_duplicate_payload (test_packaging.ReleasePackaging) ... ok
+test_rejects_missing_payload (test_packaging.ReleasePackaging) ... ok
+test_rejects_unsafe_archive_paths (test_packaging.ReleasePackaging) ... ok
+test_rejects_wrong_native_binary (test_packaging.ReleasePackaging) ... ok
+test_zip_roundtrip_is_deterministic_and_wont_overwrite (test_packaging.ReleasePackaging) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.012s
+
+OK

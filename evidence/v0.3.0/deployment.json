@@ -1,0 +1,48 @@
+{
+  "version": "0.3.0",
+  "complete": true,
+  "files": [
+    {
+      "relative": "hack/lua/plugins/worldmap-zoom-render.lua",
+      "sha256": "9FA69A6D1C6298C28BC5164520B7B281796C99D83686006ECBE2A856949D43AF",
+      "verified": true
+    },
+    {
+      "relative": "hack/lua/worldmap-zoom/camera.lua",
+      "sha256": "A21ACD1FA5BFEA6DC276D29DFCAE81F03CA05747F9B4D66E10A10C2E756D447B",
+      "verified": true
+    },
+    {
+      "relative": "hack/lua/worldmap-zoom/context.lua",
+      "sha256": "ADE7E628AEAC700838C0DCBE78CAD0158EED62017D7B7085952D0DE55AF2541C",
+      "verified": true
+    },
+    {
+      "relative": "hack/lua/worldmap-zoom/gesture.lua",
+      "sha256": "13184D7B99116FC786412AFC51D66ABFCA246CE1C154C2C5C9CD60077564A283",
+      "verified": true
+    },
+    {
+      "relative": "hack/lua/worldmap-zoom/input.lua",
+      "sha256": "CB4620194DC7620DC0EFD8713CA394B860BF2694FB8895C79240C2B25E34176D",
+      "verified": true
+    },
+    {
+      "relative": "hack/plugins/worldmap-zoom-render.plug.dll",
+      "sha256": "C95964DCFF4E1FA423BB2EEC39919447F6DB14A8A1566513CA012242444FF46A",
+      "verified": true
+    },
+    {
+      "relative": "dfhack-config/scripts/worldmap-zoom.lua",
+      "sha256": "833F49B21EE3107DAFEF4065B92AB75F29AC7C3DCDCCF90FC921E9CCB7B81A9A",
+      "verified": true
+    },
+    {
+      "relative": "dfhack-config/scripts/gui/worldmap-zoom.lua",
+      "sha256": "42AB761AB9AA774452E967FF905D0138A40FAB790A6BD4F68593BEC63EDA988F",
+      "verified": true
+    }
+  ],
+  "coreExecutablesMatch": true,
+  "record": "<game-directory>\\dfhack-config\\worldmap-zoom-install.json"
+}

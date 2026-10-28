@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+*.dll binary
+licenses/DFHack.rst -text whitespace=cr-at-eol

@@ -1,0 +1,33 @@
+{
+	"army_controllers": 0,
+	"checks": 8,
+	"context": 2,
+	"port": [ 160, 90 ],
+	"site": 285,
+	"status": {
+		"camera_generation": 247,
+		"canvas_composites": 8309,
+		"canvas_creations": 2,
+		"capture_error": "",
+		"context": 0,
+		"desktop_height": 1440,
+		"desktop_width": 2560,
+		"error": "",
+		"focus_epoch": 1,
+		"frame_profile_samples": 256,
+		"full_calls": 8650,
+		"last_capture": "<validation-workspace>/work/native-qa-v030/fortress-2560x1440-reset-1793149473085025700.ppm",
+		"output_height": 1440,
+		"output_width": 2560,
+		"presented_generation": 243,
+		"profile_samples": 256,
+		"ready": true,
+		"render_thread": 12768,
+		"restore_checks": 8309,
+		"restore_errors": 0,
+		"sdl_backend": "direct3d",
+		"tile_calls": 124560000,
+		"transformed_calls": 78853,
+		"window_focused": true
+	}
+}

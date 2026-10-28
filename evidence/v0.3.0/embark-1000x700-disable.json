@@ -1,0 +1,32 @@
+{
+	"checks": 6,
+	"context": 1,
+	"port": [ 63, 44 ],
+	"selection_suppressed": true,
+	"status": {
+		"camera_generation": 240,
+		"canvas_composites": 11357,
+		"canvas_creations": 3,
+		"capture_error": "",
+		"context": 1,
+		"desktop_height": 1440,
+		"desktop_width": 2560,
+		"error": "",
+		"focus_epoch": 2,
+		"frame_profile_samples": 256,
+		"full_calls": 11692,
+		"last_capture": "<validation-workspace>/work/native-qa-v030/embark-1000x700-reset-1793149735319825700.ppm",
+		"output_height": 700,
+		"output_width": 1000,
+		"presented_generation": 237,
+		"profile_samples": 256,
+		"ready": true,
+		"render_thread": 14412,
+		"restore_checks": 11357,
+		"restore_errors": 0,
+		"sdl_backend": "direct3d",
+		"tile_calls": 32449344,
+		"transformed_calls": 26283,
+		"window_focused": true
+	}
+}

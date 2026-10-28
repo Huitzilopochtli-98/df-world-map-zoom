@@ -1,0 +1,6 @@
+{
+  "version": "0.3.0",
+  "nativeDllSha256": "c95964dcff4e1fa423bb2eec39919447f6db14a8a1566513ca012242444ff46a",
+  "nativeValidation": "evidence/v0.3.0",
+  "note": "The original in-game-tested DLL is reused unchanged. PE timestamps and compiler paths mean rebuilding is not promised to produce identical bytes."
+}
