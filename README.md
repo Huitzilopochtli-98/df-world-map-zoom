@@ -53,6 +53,7 @@ The map starts at **2x zoom**. Run the same command whenever you want to open th
 | To do this | Use this |
 | --- | --- |
 | Zoom in or out | Scroll the mouse wheel over the map, or click **+ / -** |
+| Zoom with the keyboard | Press **+** or **=** to zoom in; press **-** to zoom out |
 | Cycle through 1x, 2x, and 4x | Press **Z** |
 | Move around | Hold the **left or middle mouse button** and drag the map |
 | Move with the keyboard | Press the **arrow keys** or **W, A, S, D** |

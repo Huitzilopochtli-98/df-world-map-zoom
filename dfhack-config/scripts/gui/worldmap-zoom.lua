@@ -215,7 +215,7 @@ function ZoomScreen:onInput(keys)
     if keys.CURSOR_UP or keys.CUSTOM_W then dy=-2 end
     if keys.CURSOR_DOWN or keys.CUSTOM_S then dy=2 end
     if dx~=0 or dy~=0 then self.camera:pan(dx,dy);self:sync()
-    elseif keys.CONTEXT_SCROLL_UP or keys.STRING_A043 then self:zoom_at_pointer(self.camera:next_zoom(1))
+    elseif keys.CONTEXT_SCROLL_UP or keys.STRING_A043 or keys.STRING_A061 then self:zoom_at_pointer(self.camera:next_zoom(1))
     elseif keys.CONTEXT_SCROLL_DOWN or keys.STRING_A045 then self:zoom_at_pointer(self.camera:next_zoom(-1)) end
     return true
 end

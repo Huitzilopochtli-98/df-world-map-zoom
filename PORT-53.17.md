@@ -21,6 +21,7 @@ view or site-action panel also starts a new supported map visit.
 
 Esc closes the zoom tool for the current visit. It stays closed until you leave
 and return to a supported map. `gui/worldmap-zoom` still opens it manually.
+Both `+` and `=` zoom in; `-` zooms out.
 Run `disable worldmap-zoom-autostart` to stop automatic launching for the
 session. Remove the startup fragment to disable it for future game starts.
 
@@ -45,7 +46,8 @@ PowerShell installer was not executed during this port.
 
 ## Validation
 
-- The user confirmed that the rebuilt mod works in the isolated copied game.
+- The user confirmed that the rebuilt mod works in the isolated copied game,
+  and subsequently confirmed automatic startup in the normal installation.
 - All 6,930 camera, 319 input-restoration, 307 gesture, and seven diagnostic
   mock checks pass.
 - Additional autostart mocks cover native map readiness, both map types,
@@ -55,7 +57,10 @@ PowerShell installer was not executed during this port.
   modified-file preservation, executable/payload rejection, and failure recovery.
 - The normal Steam game was reopened after installation. A live read-only check
   confirmed DF 53.17, DFHack 53.17-r1, the normal configuration directory,
-  and the enabled startup hook. The user is checking actual map behavior.
+  and the enabled startup hook.
+
+The final `=` key alias was added after these checks. It was not tested at the
+user's request; the existing zoom-in operation is shared with `+`.
 
 These checks do not repeat the upstream pixel-comparison and performance
 acceptance suite. Original upstream evidence remains historical. Local records
