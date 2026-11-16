@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0-local.53.17",
+  "nativeDllSha256": "91a1f63df3bf97cbb629b262fcdc2c6ddf85662e1d5bd8f16d6fe0b2961d0e38",
+  "nativeValidation": "evidence/local-53.17",
+  "note": "Local modified build for Steam DF 53.17 and DFHack 53.17-r1 under Proton. User confirmed the rebuilt zoom works. Autostart transitions were mock-tested and the installed startup hook was checked live; no full native rendering comparison or upstream certification is claimed."
+}

@@ -33,7 +33,7 @@ if(-not $missingRejected -or (Test-Path -LiteralPath (Join-Path $config 'worldma
 & (Join-Path $package 'Install.ps1') @params
 $recordPath=Join-Path $config 'worldmap-zoom-install.json'
 $record=Get-Content -LiteralPath $recordPath -Raw | ConvertFrom-Json
-if(-not $record.complete -or $record.files.Count -ne 8) {throw 'Incomplete installation manifest'}
+if(-not $record.complete -or $record.files.Count -ne $payload.Count) {throw 'Incomplete installation manifest'}
 $entry=$record.files | Where-Object relative -eq 'dfhack-config/scripts/gui/worldmap-zoom.lua'
 if((Get-FileHash -LiteralPath $entry.backup).Hash -ne $originalHash) {throw 'Original was not backed up'}
 & (Join-Path $package 'Install.ps1') @params

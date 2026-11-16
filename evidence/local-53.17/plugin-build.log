@@ -1,0 +1,8 @@
+wine: created the configuration directory '<workspace>/work/compiler-wine'
+   Creating library <workspace>\work\build-53.17\dfhack.lib and object <workspace>\work\build-53.17\dfhack.exp
+   Creating library <workspace>\work\build-53.17\lua53.lib and object <workspace>\work\build-53.17\lua53.exp
+worldmap-zoom-render.cpp
+DFHackVersion.cpp
+Generating Code...
+   Creating library worldmap-zoom-render.lib and object worldmap-zoom-render.exp
+<workspace>/work/df-world-map-zoom/hack/plugins/worldmap-zoom-render.plug.dll

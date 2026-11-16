@@ -61,6 +61,8 @@ $files=@($files)
 $allowed=@(
     'dfhack-config/scripts/gui/worldmap-zoom.lua'
     'dfhack-config/scripts/worldmap-zoom.lua'
+    'dfhack-config/scripts/worldmap-zoom-autostart.lua'
+    'dfhack-config/init/dfhack.worldmap-zoom.init'
     'hack/lua/plugins/worldmap-zoom-render.lua'
     'hack/lua/worldmap-zoom/camera.lua'
     'hack/lua/worldmap-zoom/context.lua'
@@ -111,7 +113,7 @@ if ($missing.Count) {
 $compat=Get-Content -LiteralPath (Join-Path $package 'compatibility.json') -Raw | ConvertFrom-Json
 if ((Hash (Join-Path $GamePath 'Dwarf Fortress.exe')) -ne $compat.gameSha256 -or
         (Hash (Join-Path $HackPath 'dfhack.dll')) -ne $compat.dfhackSha256) {
-    throw 'This binary is for the tested Steam DF 53.16 / DFHack 53.16-r3 installation. The installed executables differ; rebuild and retest before installation.'
+    throw 'This binary is for the tested Steam DF 53.17 / DFHack 53.17-r1 installation. The installed executables differ; rebuild and retest before installation.'
 }
 $entries=@()
 $stamp=[DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss')+'-'+[guid]::NewGuid().ToString('N').Substring(0,8)

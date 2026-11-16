@@ -1,11 +1,11 @@
 {
-  "modVersion": "1.0.0",
-  "dfVersion": "v0.53.16 win64 STEAM",
-  "dfhackVersion": "53.16-r3",
-  "dfhackCommit": "0bf381cc1615656acf756e6e67573fffca715125",
-  "structuresCommit": "d8ff8a6326db37c11dc4173fadcf30b56e51b42d",
-  "gameSha256": "205770918FD54C96CBBCF89223EBD449E2E113C7C873ED81177C4511A3450DB7",
-  "dfhackSha256": "20ABCBC841155DAEFBD7ADDCB7E7BCD72D92D23EEBD347B297D44919CF2D0A7B",
-  "platform": "Windows x64, Steam, SDL2 renderer",
-  "compiler": "MSVC 14.44.35207, Release /MD /vmg /vmm, C++20"
+  "modVersion": "1.0.0-local.53.17",
+  "dfVersion": "v0.53.17 win64 STEAM",
+  "dfhackVersion": "53.17-r1",
+  "dfhackCommit": "3bc63a220af608e1cf20b123dc45bc0a22e296ab",
+  "structuresCommit": "611369f12c5f214e0f8114900398ba74e8a2dd2f",
+  "gameSha256": "3436F0553D6FA17B25716F8B1F034B52E3D9DC30BE7F3DDAC67CD0FF731D7B16",
+  "dfhackSha256": "7A3AA11229A82F2E4783F2479848E34C9F74B308E426569736A16022957692F9",
+  "platform": "Windows x64, Steam via Proton, SDL2 renderer",
+  "compiler": "MSVC 14.44, Release /MD /vmg /vmm, C++20"
 }

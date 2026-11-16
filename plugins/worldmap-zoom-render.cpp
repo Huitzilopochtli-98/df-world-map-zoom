@@ -1,4 +1,4 @@
-// Map-only native composition transform for DF 53.16 / DFHack 53.16-r3.
+// Map-only native composition transform for DF 53.17 / DFHack 53.17-r1.
 #include "PluginManager.h"
 #include "VTableInterpose.h"
 #define NO_DFHACK_VERSION_MACROS
@@ -421,9 +421,9 @@ static int lua_prepare(lua_State* L) {
     // Validate runtime metadata BEFORE reading mapped renderer fields or
     // installing hooks. Plugin metadata alone only checks the release/ABI.
     for (auto [function, expected] : {
-            std::pair{"getDFVersion", "v0.53.16 win64 STEAM"},
-            std::pair{"getGitCommit", "0bf381cc1615656acf756e6e67573fffca715125"},
-            std::pair{"getGitXmlCommit", "d8ff8a6326db37c11dc4173fadcf30b56e51b42d"}}) {
+            std::pair{"getDFVersion", "v0.53.17 win64 STEAM"},
+            std::pair{"getGitCommit", "3bc63a220af608e1cf20b123dc45bc0a22e296ab"},
+            std::pair{"getGitXmlCommit", "611369f12c5f214e0f8114900398ba74e8a2dd2f"}}) {
         lua_getglobal(L, "dfhack"); lua_getfield(L, -1, function);
         if (lua_pcall(L, 0, 1, 0) != LUA_OK) return luaL_error(L, "Cannot verify DFHack build");
         const char* value = lua_tostring(L, -1);

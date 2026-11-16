@@ -1,3 +1,5 @@
+> **Local modified build for DF 53.17 / DFHack 53.17-r1.** This is a local port, not an upstream release. See PORT-53.17.md for its build and validation record. Historical upstream instructions below refer to 1.0.0.
+
 # World Map Zoom 1.0
 
 Make Dwarf Fortress's world map easier to see with **2x and 4x zoom**.
@@ -51,6 +53,7 @@ The map starts at **2x zoom**. Run the same command whenever you want to open th
 | To do this | Use this |
 | --- | --- |
 | Zoom in or out | Scroll the mouse wheel over the map, or click **+ / -** |
+| Zoom with the keyboard | Press **+** or **=** to zoom in; press **-** to zoom out |
 | Cycle through 1x, 2x, and 4x | Press **Z** |
 | Move around | Hold the **left or middle mouse button** and drag the map |
 | Move with the keyboard | Press the **arrow keys** or **W, A, S, D** |

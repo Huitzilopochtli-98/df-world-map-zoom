@@ -1,0 +1,6 @@
+{
+  "df.g_src.enabler.xml": "Unchanged",
+  "df.g_src.renderer_2d.xml": "Unchanged",
+  "df.g_src.graphics.xml": "Unchanged",
+  "df.d_interface.xml": "diff --git a/df.d_interface.xml b/df.d_interface.xml\nindex f8fee03..fcc002e 100644\n--- a/df.d_interface.xml\n+++ b/df.d_interface.xml\n@@ -17,6 +17,7 @@\n             <vmethod name='toggle'/>\n             <vmethod name='decrease'/>\n             <vmethod name='increase'/>\n+            <vmethod ret-type='bool' name='is_on'/>\n             <vmethod is-destructor='true'/>\n         </virtual-methods>\n     </class-type>\n"
+}

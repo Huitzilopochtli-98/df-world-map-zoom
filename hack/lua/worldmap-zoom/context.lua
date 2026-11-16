@@ -1,6 +1,6 @@
 local M = {}
 
-function M.get()
+function M.get_screen()
     local s = dfhack.gui.getDFViewscreen(true)
     local id, name
     if df.viewscreen_choose_start_sitest:is_instance(s) then
@@ -20,12 +20,19 @@ function M.get()
     else
         return nil, 'Open the high-level embark map or the fortress world map first.'
     end
+    return {screen=s,id=id,name=name}
+end
+
+function M.get()
+    local c, why = M.get_screen()
+    if not c then return nil, why end
     local p = df.global.gps.main_map_port
     local w = df.global.world.world_data
     if not p or not p.flag.active or not w or p.dim_x < 1 or p.dim_y < 1 then
         return nil, 'The native world map is not ready.'
     end
-    return {screen=s,port=p,id=id,name=name,width=w.world_width,height=w.world_height}
+    c.port, c.width, c.height = p, w.world_width, w.world_height
+    return c
 end
 
 function M.apply(context, camera, backend)
