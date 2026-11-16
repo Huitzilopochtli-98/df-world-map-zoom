@@ -1,3 +1,5 @@
+> **Local modified build for DF 53.17 / DFHack 53.17-r1.** This is a local port, not an upstream release. See PORT-53.17.md for its build and validation record. Historical upstream instructions below refer to 1.0.0.
+
 # World Map Zoom 1.0
 
 Make Dwarf Fortress's world map easier to see with **2x and 4x zoom**.

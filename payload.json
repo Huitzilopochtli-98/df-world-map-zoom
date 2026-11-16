@@ -1,6 +1,8 @@
 [
   "dfhack-config/scripts/gui/worldmap-zoom.lua",
   "dfhack-config/scripts/worldmap-zoom.lua",
+  "dfhack-config/scripts/worldmap-zoom-autostart.lua",
+  "dfhack-config/init/dfhack.worldmap-zoom.init",
   "hack/lua/plugins/worldmap-zoom-render.lua",
   "hack/lua/worldmap-zoom/camera.lua",
   "hack/lua/worldmap-zoom/context.lua",

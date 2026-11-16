@@ -6,6 +6,7 @@ parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--dfhack-source',type=Path,required=True)
 parser.add_argument('--hack-path',type=Path,required=True,help='Directory containing dfhack.dll and lua53.dll')
 parser.add_argument('--msvc-root',type=Path,help='Optional portable MSVC/Windows SDK root; otherwise use an x64 developer shell')
+parser.add_argument('--wine',action='store_true',help='Run the portable Windows compiler under Wine on Linux')
 parser.add_argument('--build-dir',type=Path,default=Path.cwd()/'work/worldmap-zoom-build')
 args=parser.parse_args()
 project=Path(__file__).resolve().parents[1]
@@ -17,6 +18,12 @@ for repo,expected in ((root,compat['dfhackCommit']),(root/'library/xml',compat['
 if not (root/'library/include/df/renderer_2d.h').exists():
     raise SystemExit('Generate matched df-structures headers with codegen.pl before building; see README.md.')
 env = os.environ.copy()
+def winpath(path):
+    path = str(Path(path).resolve())
+    return 'Z:' + path.replace('/', '\\') if args.wine else path
+
+if args.wine and not args.msvc_root:
+    raise SystemExit('--wine requires --msvc-root')
 if args.msvc_root:
     msvc = args.msvc_root.resolve()
     versions=sorted(p for p in (msvc/'VC/Tools/MSVC').iterdir() if p.is_dir() and p.name.startswith('14.44.'))
@@ -25,9 +32,10 @@ if args.msvc_root:
     sdk = msvc / 'Windows Kits/10'
     sdkver = sorted(p.name for p in (sdk/'Include').iterdir() if p.is_dir())[-1]
     binpath = vc / 'bin/Hostx64/x64'
-    env['PATH'] = str(binpath) + ';' + env['PATH']
-    env['INCLUDE'] = ';'.join(map(str, [vc/'include', sdk/'Include'/sdkver/'ucrt', sdk/'Include'/sdkver/'shared', sdk/'Include'/sdkver/'um']))
-    env['LIB'] = ';'.join(map(str, [vc/'lib/x64', sdk/'Lib'/sdkver/'ucrt/x64', sdk/'Lib'/sdkver/'um/x64']))
+    if not args.wine:
+        env['PATH'] = str(binpath) + ';' + env['PATH']
+    env['INCLUDE'] = ';'.join(map(winpath, [vc/'include', sdk/'Include'/sdkver/'ucrt', sdk/'Include'/sdkver/'shared', sdk/'Include'/sdkver/'um']))
+    env['LIB'] = ';'.join(map(winpath, [vc/'lib/x64', sdk/'Lib'/sdkver/'ucrt/x64', sdk/'Lib'/sdkver/'um/x64']))
 else:
     compiler = shutil.which('cl.exe')
     if (not compiler or not os.environ.get('VCToolsVersion','').startswith('14.44.') or
@@ -41,8 +49,11 @@ hack = args.hack_path.resolve()
 if hashlib.sha256((hack/'dfhack.dll').read_bytes()).hexdigest().upper()!=compat['dfhackSha256']:
     raise SystemExit('The DFHack DLL differs from the tested release; do not build against an unmatched ABI.')
 
-def run(args):
-    subprocess.run([str(x) for x in args], cwd=build, env=env, check=True)
+def run(command_args):
+    command = [str(x) for x in command_args]
+    if args.wine:
+        command = [shutil.which('wine64') or 'wine', winpath(command[0]), *command[1:]]
+    subprocess.run(command, cwd=build, env=env, check=True)
 
 # Link.exe accepts exported symbols as import entries; the DATA marker is
 # required for exported globals. Classify exported addresses via PE sections.
@@ -77,13 +88,13 @@ def imports(dll):
     deffile = build / (dll.stem + '.def')
     deffile.write_text('\n'.join(lines))
     libfile = build / (dll.stem + '.lib')
-    run([binpath/'lib.exe', '/nologo', '/machine:x64', '/def:' + str(deffile), '/out:' + str(libfile)])
+    run([binpath/'lib.exe', '/nologo', '/machine:x64', '/def:' + winpath(deffile), '/out:' + winpath(libfile)])
     return libfile
 
 libs = [imports(hack/'dfhack.dll'), imports(hack/'lua53.dll')]
-(build/'git-describe.h').write_text('''#define DFHACK_GIT_DESCRIPTION "53.16-r3-0-g0bf381cc"
-#define DFHACK_GIT_COMMIT "0bf381cc1615656acf756e6e67573fffca715125"
-#define DFHACK_GIT_XML_COMMIT "d8ff8a6326db37c11dc4173fadcf30b56e51b42d"
+(build/'git-describe.h').write_text(f'''#define DFHACK_GIT_DESCRIPTION "{compat['dfhackVersion']}-0-g{compat['dfhackCommit'][:8]}"
+#define DFHACK_GIT_COMMIT "{compat['dfhackCommit']}"
+#define DFHACK_GIT_XML_COMMIT "{compat['structuresCommit']}"
 #define DFHACK_GIT_XML_EXPECTED_COMMIT DFHACK_GIT_XML_COMMIT
 #define DFHACK_BUILD_ID ""
 #define DFHACK_GIT_XML_MATCH
@@ -94,8 +105,11 @@ out = project / 'hack/plugins/worldmap-zoom-render.plug.dll'
 out.parent.mkdir(parents=True, exist_ok=True)
 run([binpath/'cl.exe', '/nologo', '/std:c++20', '/O2', '/MD', '/EHsc', '/vmg', '/vmm', '/bigobj',
      '/DWIN32', '/DNOMINMAX', '/DLUA_BUILD_AS_DLL', '/D_CRT_SECURE_NO_WARNINGS',
-     '/DDF_VERSION="53.16"', '/DDFHACK_VERSION="53.16-r3"', '/DDFHACK_RELEASE="r3"',
-     '/DDFHACK_ABI_VERSION=2', '/DDFHACK_RUN_URL=""', '/I' + str(build),
-     '/wd4068', '/I' + str(root/'library/include'), '/I' + str(root/'depends/lua/include'),
-     '/LD', source, root/'library/DFHackVersion.cpp', '/link', *libs, '/OUT:' + str(out)])
+     '/DDF_VERSION="' + compat['dfhackVersion'].split('-')[0] + '"',
+     '/DDFHACK_VERSION="' + compat['dfhackVersion'] + '"',
+     '/DDFHACK_RELEASE="' + compat['dfhackVersion'].split('-',1)[1] + '"',
+     '/DDFHACK_ABI_VERSION=2', '/DDFHACK_RUN_URL=""', '/I' + winpath(build),
+     '/wd4068', '/I' + winpath(root/'library/include'), '/I' + winpath(root/'depends/lua/include'),
+     '/LD', winpath(source), winpath(root/'library/DFHackVersion.cpp'), '/link',
+     *map(winpath,libs), '/OUT:' + winpath(out)])
 print(out)
