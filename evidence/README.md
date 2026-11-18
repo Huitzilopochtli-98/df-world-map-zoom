@@ -1,6 +1,10 @@
 # Validation evidence
 
-These records were collected on October 27, 2026 for the tested 0.3.0 native
+[`v1.0.1/checks.json`](v1.0.1/checks.json) records the compatibility retest
+on November 18, 2026. It includes measurements from the released DLL on
+Dwarf Fortress 53.17 and DFHack 53.17-r1, without local paths or save data.
+
+The records under `v0.3.0/` were collected on October 27, 2026 for the tested 0.3.0 native
 plugin. [VALIDATION.md](../VALIDATION.md) explains the measurements and limits.
 The installer and build log here describe the pre-publication package.
 Publication preparation adds a stricter payload check and developer-shell build

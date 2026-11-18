@@ -1,4 +1,4 @@
-# World Map Zoom 1.0
+# World Map Zoom 1.0.1
 
 Make Dwarf Fortress's world map easier to see with **2x and 4x zoom**.
 Move around by dragging the map. Hover over places to see their usual information.
@@ -7,17 +7,19 @@ Text and buttons stay their normal size.
 ## What you need
 
 - **Windows 64-bit**
-- **Dwarf Fortress 53.16**, Steam version
-- **DFHack 53.16-r3**, already installed and working
+- **Dwarf Fortress 53.17**, Steam version
+- **DFHack 53.17-r1**, already installed and working
 
 This download works with those specific versions. The installer checks them
 before making changes. Newer game or DFHack versions need a compatible mod build.
+Still on Dwarf Fortress 53.16 with DFHack 53.16-r3? Use the
+[1.0.0 release](https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases/tag/v1.0.0).
 
 ## Install
 
 1. **Close Dwarf Fortress completely.**
-2. [Download the Windows ZIP](https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases/download/v1.0.0/WorldMapZoom-1.0.0-windows-x64.zip).
-   Its name is **WorldMapZoom-1.0.0-windows-x64.zip**. Choose this file,
+2. [Download the Windows ZIP](https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases/download/v1.0.1/WorldMapZoom-1.0.1-windows-x64.zip).
+   Its name is **WorldMapZoom-1.0.1-windows-x64.zip**. Choose this file,
    rather than one of the "Source code" downloads.
 3. Right-click the ZIP, choose **Extract All**, then **Extract**.
    Open the extracted **WorldMapZoom** folder. You should see **Install.ps1**.
@@ -108,9 +110,6 @@ feature.** Follow the Windows installation steps above to enable zoom.
 [See the embark map at 4x zoom](embark-inspection.png).
 
 ## Source and license
-
-Version **1.0.0** promotes the tested 0.3.0 implementation to a stable release
-with clearer instructions. Zoom behavior and compatibility are unchanged.
 
 The mod is open source under the [Zlib license](LICENSE).
 Forks, improvements, and extensions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md)

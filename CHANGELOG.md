@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 - Dwarf Fortress 53.17 compatibility
+
+- Rebuilt the Windows x64 renderer for Steam Dwarf Fortress 53.17 and DFHack
+  53.17-r1 using their matching source and structure definitions.
+- Updated the installer and runtime compatibility checks for the new pair.
+
 ## 1.0.0 - stable release
 
 - Promoted the tested 0.3.0 implementation to version 1.0.0.

@@ -8,7 +8,7 @@ local input = require('worldmap-zoom.input')
 local Gesture = require('worldmap-zoom.gesture')
 local ok_backend,backend = pcall(require,'plugins.worldmap-zoom-render')
 if not ok_backend or type(backend.prepare)~='function' then
-    qerror('The world map zoom renderer is missing or incompatible. Install the binary for Windows Steam DF 53.16 / DFHack 53.16-r3.')
+    qerror('The world map zoom renderer is missing or incompatible. Install the binary for Windows Steam DF 53.17 / DFHack 53.17-r1.')
 end
 
 ZoomScreen = defclass(ZoomScreen, gui.ZScreen)
@@ -232,9 +232,9 @@ local args={...}
 launch_generation=(launch_generation or 0)+1
 local generation=launch_generation
 if args[1]=='disable' then if view then view:dismiss() end;return end
-if dfhack.getGitCommit()~='0bf381cc1615656acf756e6e67573fffca715125' or
-        dfhack.getGitXmlCommit()~='d8ff8a6326db37c11dc4173fadcf30b56e51b42d' then
-    qerror('This release supports DFHack 53.16-r3 with its original structure definitions. Rebuild and retest for your installed version.')
+if dfhack.getGitCommit()~='3bc63a220af608e1cf20b123dc45bc0a22e296ab' or
+        dfhack.getGitXmlCommit()~='611369f12c5f214e0f8114900398ba74e8a2dd2f' then
+    qerror('This release supports DFHack 53.17-r1 with its original structure definitions. Install the mod release for your version of DFHack.')
 end
 local c,why=context.get()
 if not c then qerror(why) end

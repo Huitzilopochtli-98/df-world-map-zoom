@@ -10,8 +10,8 @@ a native DFHack plugin installed using the Windows release package.
 
 ## Install the zoom feature
 
-1. Download **WorldMapZoom-1.0.0-windows-x64.zip** from the
-   [1.0.0 release](https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases/tag/v1.0.0).
+1. Find the release that matches your game and DFHack versions, then download
+   its **Windows x64 ZIP**. [World Map Zoom releases](https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases)
 2. Close Dwarf Fortress, then right-click the ZIP and choose **Extract All**.
 3. Open the extracted **WorldMapZoom** folder. Click File Explorer's address bar,
    type `powershell`, and press Enter.
@@ -24,8 +24,8 @@ a native DFHack plugin installed using the Windows release package.
 5. Restart the game. Open the fortress world map or embark world map.
 6. Press **Ctrl + Shift + D**, enter `gui/worldmap-zoom`, and press Enter.
 
-Requires **Windows 64-bit**, **Steam DF 53.16**, and **DFHack 53.16-r3**.
-The installer checks the exact supported game and DFHack files.
+Requires **Windows 64-bit**, **Steam Dwarf Fortress**, and **DFHack**.
+Each release lists its supported versions. The installer checks the exact builds.
 
 ## Get these instructions in game
 

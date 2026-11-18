@@ -25,7 +25,7 @@ The high-level embark `Biome` mode and fortress `NORMAL` mode are the supported 
 The direct Windows build requires Python 3.10+, Git, MSVC 14.44 with a Windows SDK, and the pinned DFHack source with generated headers. Install the Visual Studio C++ tools for x64/x86 and the v14.44 toolset, then initialize an x64 developer command prompt with `VsDevCmd.bat -arch=x64 -host_arch=x64 -vcvars_ver=14.44`. Use the `VsDevCmd.bat` from your Visual Studio/Build Tools installation. Keep using that shell so its compiler, INCLUDE, and LIB environment stays available. The build creates import libraries from the tested DFHack/Lua DLL exports and compiles a Release `/MD /vmg /vmm` plugin. It does not rebuild or replace DFHack itself.
 
 ```powershell
-git clone --depth 1 --branch 53.16-r3 https://github.com/DFHack/dfhack.git dfhack
+git clone --depth 1 --branch 53.17-r1 https://github.com/DFHack/dfhack.git dfhack
 git -C dfhack submodule update --init --depth 1 library/xml
 perl dfhack/library/xml/codegen.pl dfhack/library/xml dfhack/library/include/df
 python tools/build_windows.py --dfhack-source dfhack --hack-path "PATH/TO/DFHACK/hack"
@@ -36,12 +36,9 @@ Perl needs `XML::LibXML` and `XML::LibXSLT`. For a portable toolchain instead of
 The builder refuses mismatched DFHack and structure commits or DFHack DLL hashes.
 It reads import names from your installed `dfhack.dll` and `lua53.dll`; those
 files are inputs you supply and are not redistributed here. Match the game too
-before installation. An updated game or DFHack needs new ABI validation, not
-just a version-string change. Version 1.0.0 uses the original in-game-tested
-0.3.0 binary, recorded in `release/1.0.0.json`. A rebuilt DLL can have different
-PE timestamps and paths; byte-for-byte reproducibility is not claimed. Locally
-rechecking the public source build did not replace native gameplay acceptance
-of the original released DLL.
+before installation. Validate the ABI and map behavior whenever either
+dependency changes. `release/1.0.1.json` records the exact tested DLL for this
+release. PE timestamps and build paths can vary across rebuilds.
 
 Run the standalone suite from the root with `lua tests/run.lua` (Lua 5.3+) and
 `python -m unittest discover -s tests -p "test_*.py"`. The GitHub workflow uses
@@ -66,10 +63,10 @@ If omitted, `ConfigPath` defaults to `dfhack-config` under the game directory.
 
 Relevant matched sources:
 
-- [DFHack 53.16-r3](https://github.com/DFHack/dfhack/tree/0bf381cc1615656acf756e6e67573fffca715125)
-- [Pinned structure definitions](https://github.com/DFHack/df-structures/tree/d8ff8a6326db37c11dc4173fadcf30b56e51b42d)
-- [Graphics-thread callback implementation](https://github.com/DFHack/dfhack/blob/53.16-r3/library/modules/DFSDL.cpp)
-- [Matched edgescroll camera path](https://github.com/DFHack/dfhack/blob/53.16-r3/plugins/edgescroll.cpp)
+- [DFHack 53.17-r1](https://github.com/DFHack/dfhack/tree/3bc63a220af608e1cf20b123dc45bc0a22e296ab)
+- [Pinned structure definitions](https://github.com/DFHack/df-structures/tree/611369f12c5f214e0f8114900398ba74e8a2dd2f)
+- [Graphics-thread callback implementation](https://github.com/DFHack/dfhack/blob/53.17-r1/library/modules/DFSDL.cpp)
+- [Matched edgescroll camera path](https://github.com/DFHack/dfhack/blob/53.17-r1/plugins/edgescroll.cpp)
 - [Published graphics source used as background evidence](https://github.com/Putnam3145/Dwarf-Fortress--libgraphics--)
 
 The background graphics source is not substituted for installed-build evidence. The runtime probe, pixel comparisons, and native interaction tests bind this implementation to the installed binaries. DFHack's license is retained in `licenses/DFHack.rst`.

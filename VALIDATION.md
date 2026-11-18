@@ -1,4 +1,36 @@
-# Validation - 1.0.0 and the tested 0.3.0 implementation
+# Validation
+
+## 1.0.1 on Dwarf Fortress 53.17
+
+Tested on November 18, 2026 with Steam Dwarf Fortress 53.17, DFHack 53.17-r1,
+and the Direct3D 11 renderer at 1200×800 in a disposable Windows game copy.
+The runtime reported the exact DFHack and structure commits in
+[`compatibility.json`](compatibility.json). The released DLL hash is recorded
+in [`release/1.0.1.json`](release/1.0.1.json).
+
+| Map | Zoom | Map pixels compared | Expected color match |
+| --- | ---: | ---: | ---: |
+| Embark | 2x | 825,817 | 100% |
+| Embark | 4x | 829,020 | 100% |
+| Fortress | 2x | 620,000 | 99.23% |
+| Fortress | 4x | 588,000 | 99.18% |
+
+Each comparison used a same-camera 1x reference and the expected
+nearest-neighbor crop. Native UI pixels and reset frames matched exactly in
+all four runs. The renderer reported zero SDL state-restoration errors.
+
+The native gesture suite passed 174 checks per map. A separate 4x embark
+selection test passed eight checks, including native target selection and
+preservation of the 4×4 embark footprint. These tests synthesize input in game.
+The SDL target-texture probe also passed at 4x on six backends, including
+legacy Direct3D. Full-game pixel coverage used Direct3D 11.
+
+Windows PowerShell 5.1 installer checks passed. A disposable 1.0.0 install
+upgraded in place after replacing both dependency executables. All eight
+managed files matched the 1.0.1 payload. Standalone Lua and Python checks passed.
+See the [1.0.1 test record](evidence/v1.0.1/checks.json) for exact measurements.
+
+## Historical results for 1.0.0 and 0.3.0
 
 Version 1.0.0 promotes the tested 0.3.0 native DLL and runtime scripts unchanged.
 Its changes are documentation, package version metadata, and a correction to
@@ -7,7 +39,7 @@ below were collected for 0.3.0 and remain the validation basis for 1.0.0; they
 are not presented as a new in-game test run. The exact DLL hash is recorded in
 `release/1.0.0.json`. Supported game and DFHack builds are unchanged.
 
-Validated October 27, 2026 against the installed Windows Steam DF 53.16 / DFHack 53.16-r3 binaries and the normal desktop `direct3d` backend. Exact commits and executable hashes are in `compatibility.json`. Tests use explicitly selected **Portable Folder: region2** and **Portable Folder: region4** copies; original saves are not write targets. The native test worlds are 129×129 tiles.
+Validated October 27, 2026 against the installed Windows Steam DF 53.16 / DFHack 53.16-r3 binaries and the normal desktop `direct3d` backend. Exact commits and hashes are in the [1.0.0 compatibility record](https://github.com/Huitzilopochtli-98/df-world-map-zoom/blob/v1.0.0/compatibility.json). Tests use explicitly selected **Portable Folder: region2** and **Portable Folder: region4** copies. The native test worlds are 129×129 tiles.
 
 ## New scale and controls
 
@@ -49,6 +81,6 @@ The 4x target-texture sequence also passes a hidden synthetic probe on direct3d,
 - Installer backup, idempotence, rollback, modified-file preservation, recovery record, checksum rejection, and WhatIf pass with all eight assets.
 - The pinned-source Windows builder compiled the native DLL; source, build log, checksums, and native evidence are included.
 
-Current native records are under `evidence/v0.3.0/`; local path redactions are documented in `evidence/README.md`. Earlier development archives are not part of the public release. Publication tooling and installer checks are recorded separately under `evidence/publication/`. Run `tests/native_rendering.py` with `--zoom 4` to repeat composition/timing coverage, and `tests/presented_map.py` with `--expected-zoom 4` in a normal desktop session to check the displayed game window. `tests/sdl_backend_regression.py --sdl-dll "PATH/TO/GAME/SDL2.dll" --zoom 4` repeats the six-backend operation test and requires Direct3D to be available. Python image tests require Pillow and numpy.
+The 0.3.0 native records are under `evidence/v0.3.0/`; local path redactions are documented in `evidence/README.md`. Earlier development archives are not part of the public release. Publication tooling and installer checks for 1.0.0 are recorded separately under `evidence/publication/`. Run `tests/native_rendering.py` with `--zoom 4` to repeat composition/timing coverage, and `tests/presented_map.py` with `--expected-zoom 4` in a normal desktop session to check the displayed game window. `tests/sdl_backend_regression.py --sdl-dll "PATH/TO/GAME/SDL2.dll" --zoom 4` repeats the six-backend operation test and requires Direct3D to be available. Python image tests require Pillow and numpy.
 
 Native coverage uses sampled locations and copied worlds, not every site cluster or gameplay state. Magnified crops retain source-pixel rounding; 1x retains native tile-camera rounding, and world bounds can force anchor clamps. Other magnifications, preference persistence, unsupported geographic/action modes, and other game/DFHack builds remain outside this release.

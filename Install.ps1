@@ -111,7 +111,7 @@ if ($missing.Count) {
 $compat=Get-Content -LiteralPath (Join-Path $package 'compatibility.json') -Raw | ConvertFrom-Json
 if ((Hash (Join-Path $GamePath 'Dwarf Fortress.exe')) -ne $compat.gameSha256 -or
         (Hash (Join-Path $HackPath 'dfhack.dll')) -ne $compat.dfhackSha256) {
-    throw 'This binary is for the tested Steam DF 53.16 / DFHack 53.16-r3 installation. The installed executables differ; rebuild and retest before installation.'
+    throw "This binary is for Dwarf Fortress $($compat.dfVersion) / DFHack $($compat.dfhackVersion). The installed executables differ. Download the World Map Zoom release for your installed versions."
 }
 $entries=@()
 $stamp=[DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss')+'-'+[guid]::NewGuid().ToString('N').Substring(0,8)

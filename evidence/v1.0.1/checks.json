@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-18",
+  "dfVersion": "v0.53.17 win64 STEAM",
+  "dfhackVersion": "53.17-r1",
+  "nativeDllSha256": "c3717f462c29211a3dfbd961661623bc2c6161fed043a2d2bdabd8daa4e1f52c",
+  "renderer": "direct3d11",
+  "resolution": [
+    1200,
+    800
+  ],
+  "rendering": [
+    {
+      "map": "embark",
+      "zoom": 2,
+      "mapPixels": 825817,
+      "mapMatch": 1.0,
+      "nativeUiPixels": 55296,
+      "nativeUiMatch": 1.0,
+      "resetMatch": 1.0,
+      "rendererRestoreErrors": 0,
+      "addedFrameP95Us": -533.2999999999997,
+      "drawCompletionMs": [
+        47,
+        31,
+        31,
+        63,
+        47,
+        62,
+        31,
+        62
+      ]
+    },
+    {
+      "map": "embark",
+      "zoom": 4,
+      "mapPixels": 829020,
+      "mapMatch": 1.0,
+      "nativeUiPixels": 55296,
+      "nativeUiMatch": 1.0,
+      "resetMatch": 1.0,
+      "rendererRestoreErrors": 0,
+      "addedFrameP95Us": -780.9249999999993,
+      "drawCompletionMs": [
+        31,
+        32,
+        47,
+        63,
+        31,
+        47,
+        47,
+        63
+      ]
+    },
+    {
+      "map": "fortress",
+      "zoom": 2,
+      "mapPixels": 620000,
+      "mapMatch": 0.9922580645161291,
+      "nativeUiPixels": 171615,
+      "nativeUiMatch": 1.0,
+      "resetMatch": 1.0,
+      "rendererRestoreErrors": 0,
+      "addedFrameP95Us": -991.9750000000004,
+      "drawCompletionMs": [
+        47,
+        47,
+        47,
+        31,
+        32,
+        47,
+        47,
+        32
+      ]
+    },
+    {
+      "map": "fortress",
+      "zoom": 4,
+      "mapPixels": 588000,
+      "mapMatch": 0.9918367346938776,
+      "nativeUiPixels": 171615,
+      "nativeUiMatch": 1.0,
+      "resetMatch": 1.0,
+      "rendererRestoreErrors": 0,
+      "addedFrameP95Us": -573.0500000000002,
+      "drawCompletionMs": [
+        31,
+        47,
+        31,
+        63,
+        47,
+        62,
+        31,
+        62
+      ]
+    }
+  ],
+  "input": [
+    {
+      "test": "embark-gestures",
+      "checks": 174
+    },
+    {
+      "test": "embark-select4",
+      "checks": 8
+    },
+    {
+      "test": "fortress-gestures",
+      "checks": 174
+    }
+  ],
+  "sdl4xTargetProbeBackends": [
+    "direct3d",
+    "direct3d11",
+    "direct3d12",
+    "opengl",
+    "opengles2",
+    "software"
+  ],
+  "installer": "Windows PowerShell 5.1 checks and 1.0.0 to 1.0.1 in-place upgrade passed",
+  "standalone": "Lua and Python suites passed"
+}

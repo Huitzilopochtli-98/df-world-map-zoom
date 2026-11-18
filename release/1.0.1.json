@@ -1,0 +1,6 @@
+{
+  "version": "1.0.1",
+  "nativeDllSha256": "c3717f462c29211a3dfbd961661623bc2c6161fed043a2d2bdabd8daa4e1f52c",
+  "nativeValidation": "evidence/v1.0.1",
+  "note": "Built from the DFHack 53.17-r1 tag and its pinned df-structures commit. Validated on Steam Dwarf Fortress 53.17 with the matching Windows x64 DFHack runtime. Native 2x and 4x comparisons and gesture checks passed in the embark and fortress world maps."
+}

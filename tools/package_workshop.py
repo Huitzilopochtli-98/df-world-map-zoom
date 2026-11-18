@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import zipfile
@@ -26,8 +27,11 @@ def companion_files(root, revision):
     files['THIRD_PARTY_NOTICES.md'] = (root/'THIRD_PARTY_NOTICES.md').read_bytes()
     if b'STEAM_FILE_ID' in files['info.txt']:
         raise ValueError('Source metadata must not include a publishing account item ID')
+    version_tag = re.search(rb'(?m)^\[DISPLAYED_VERSION:(\d+\.\d+\.\d+)\]\r?$', files['info.txt'])
+    if not version_tag:
+        raise ValueError('Set a numeric DISPLAYED_VERSION in the companion metadata')
     files['SOURCE.json'] = (json.dumps({
-        'version': '1.0.0',
+        'version': version_tag[1].decode('ascii'),
         'sourceCommit': revision,
         'repository': 'https://github.com/Huitzilopochtli-98/df-world-map-zoom',
         'kind': 'Workshop setup companion; native plugin needs manual installation',
@@ -49,7 +53,8 @@ def package(root, output, revision):
         target.write_bytes(data)
     for name in ('WORKSHOP_DESCRIPTION.bbcode', 'PUBLISHING.md'):
         shutil.copyfile(root/'workshop'/name, output/name)
-    archive = output/'WorldMapZoom-1.0.0-Workshop-Companion.zip'
+    version = json.loads(files['SOURCE.json'])['version']
+    archive = output/f'WorldMapZoom-{version}-Workshop-Companion.zip'
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as stream:
         for name, data in sorted(files.items()):
             entry = zipfile.ZipInfo(MOD+'/'+name, (2026, 1, 1, 0, 0, 0))
@@ -61,7 +66,7 @@ def package(root, output, revision):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=ROOT/'dist/workshop-1.0.0')
+    parser.add_argument('--output', type=Path, default=ROOT/'dist/workshop')
     args = parser.parse_args()
     if subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT).strip():
         raise SystemExit('Commit the companion source before packaging.')

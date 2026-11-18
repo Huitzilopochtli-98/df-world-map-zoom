@@ -81,9 +81,13 @@ def imports(dll):
     return libfile
 
 libs = [imports(hack/'dfhack.dll'), imports(hack/'lua53.dll')]
-(build/'git-describe.h').write_text('''#define DFHACK_GIT_DESCRIPTION "53.16-r3-0-g0bf381cc"
-#define DFHACK_GIT_COMMIT "0bf381cc1615656acf756e6e67573fffca715125"
-#define DFHACK_GIT_XML_COMMIT "d8ff8a6326db37c11dc4173fadcf30b56e51b42d"
+dfhack_version = compat['dfhackVersion']
+df_version, dfhack_release = dfhack_version.rsplit('-', 1)
+dfhack_commit = compat['dfhackCommit']
+structures_commit = compat['structuresCommit']
+(build/'git-describe.h').write_text(f'''#define DFHACK_GIT_DESCRIPTION "{dfhack_version}-0-g{dfhack_commit[:8]}"
+#define DFHACK_GIT_COMMIT "{dfhack_commit}"
+#define DFHACK_GIT_XML_COMMIT "{structures_commit}"
 #define DFHACK_GIT_XML_EXPECTED_COMMIT DFHACK_GIT_XML_COMMIT
 #define DFHACK_BUILD_ID ""
 #define DFHACK_GIT_XML_MATCH
@@ -94,7 +98,8 @@ out = project / 'hack/plugins/worldmap-zoom-render.plug.dll'
 out.parent.mkdir(parents=True, exist_ok=True)
 run([binpath/'cl.exe', '/nologo', '/std:c++20', '/O2', '/MD', '/EHsc', '/vmg', '/vmm', '/bigobj',
      '/DWIN32', '/DNOMINMAX', '/DLUA_BUILD_AS_DLL', '/D_CRT_SECURE_NO_WARNINGS',
-     '/DDF_VERSION="53.16"', '/DDFHACK_VERSION="53.16-r3"', '/DDFHACK_RELEASE="r3"',
+     '/DDF_VERSION="'+df_version+'"', '/DDFHACK_VERSION="'+dfhack_version+'"',
+     '/DDFHACK_RELEASE="'+dfhack_release+'"', '/DWORLDMAP_ZOOM_DF_VERSION="'+compat['dfVersion']+'"',
      '/DDFHACK_ABI_VERSION=2', '/DDFHACK_RUN_URL=""', '/I' + str(build),
      '/wd4068', '/I' + str(root/'library/include'), '/I' + str(root/'depends/lua/include'),
      '/LD', source, root/'library/DFHackVersion.cpp', '/link', *libs, '/OUT:' + str(out)])

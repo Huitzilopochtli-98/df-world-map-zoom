@@ -10,10 +10,10 @@ World Map Zoom 1.0 - manual installation required
 This Workshop companion adds this help command, not the native zoom plugin.
 Subscribing alone does not enable zoom.
 
-Requires Windows 64-bit, Steam DF 53.16, and DFHack 53.16-r3.
+Requires Windows 64-bit, Steam Dwarf Fortress, and DFHack.
 
-1. Download WorldMapZoom-1.0.0-windows-x64.zip from:
-   https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases/tag/v1.0.0
+1. Choose the release for your game and DFHack versions, then download its Windows x64 ZIP:
+   https://github.com/Huitzilopochtli-98/df-world-map-zoom/releases
 2. Close Dwarf Fortress completely.
 3. Right-click the ZIP, choose Extract All, and open WorldMapZoom.
 4. In File Explorer's address bar, type powershell and press Enter.

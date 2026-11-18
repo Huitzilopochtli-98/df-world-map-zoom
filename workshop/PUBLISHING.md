@@ -1,6 +1,6 @@
 # Publishing the Workshop companion
 
-This is a setup/help companion for the native World Map Zoom 1.0.0 release.
+This is a setup/help companion for the native World Map Zoom releases.
 It is not a Subscribe-and-play port of the renderer. The title, description,
 README, and help command must continue to make manual installation explicit.
 
@@ -22,7 +22,7 @@ limited accounts and Family Sharing licenses cannot submit Workshop content.
 From a committed checkout:
 
 ```powershell
-python tools/package_workshop.py --output dist/workshop-1.0.0
+python tools/package_workshop.py --output dist/workshop-1.0.1
 ```
 
 The output includes the mod folder, an upload ZIP, its checksum, this guide, and
